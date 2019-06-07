@@ -5,7 +5,6 @@ RUN apk add --update apache2 php7-apache2 openssh libpng-dev libjpeg-turbo-dev l
   && pecl install xdebug \
   && pecl install imagick \
   && docker-php-ext-enable imagick \
-  && apk del --no-cache --purge build-dependencies \
   && rm -rf /tmp/* /var/cache/apk/*
 
 RUN rm -rf /var/www/localhost/htdocs \
