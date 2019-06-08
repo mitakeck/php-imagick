@@ -7,7 +7,7 @@ RUN yum update -y && \
 # install php5
 RUN yum install -y epel-release && \
     rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-5.rpm && \
-    yum -y install --enablerepo=remi-php56 php php-fpm php-mcrypt php-cli php-common php-devel php-gd php-mbstring php-mysqlnd php-opcache php-pdo php-pear php-pecl-apcu php-pecl-zip php-process php-xml php-intl php-redis && \
+    yum -y install --enablerepo=remi-php56,remi php php-fpm php-mcrypt php-cli php-common php-devel php-gd php-mbstring php-mysqlnd php-opcache php-pdo php-pear php-pecl-apcu php-pecl-zip php-process php-xml php-intl php-redis && \
     yum clean all
 
 # install httpd
