@@ -11,7 +11,9 @@ RUN apk add --update php7-mbstring openssh libpng-dev libjpeg-turbo-dev libxml2-
   && echo "extension=intl" >> /etc/php7/php.ini \
   && echo "extension=mbstring" >> /etc/php7/php.ini \
   && echo "extension=pdo_mysql" >> /etc/php7/php.ini \
-  && rm -rf /tmp/* /var/cache/apk/*
+  && rm -rf /tmp/* /var/cache/apk/* \
+  && sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf \
+  && sed -i -e "s/AllowOverride None/AllowOverride ALL/" /etc/apache2/httpd.conf
 
 RUN rm -rf /var/www/localhost/htdocs \
   && ln -s /var/www/html /var/www/localhost/htdocs 
